@@ -375,7 +375,7 @@ export default function Home() {
               {/* About Text */}
               <div className="text-lg text-gray-300 space-y-6 text-center md:text-left md:order-1">
                 <p>
-                  Hi, I&apos;m Dev—a chill philosopher, aspiring polymath, and part-time quantum enthusiast. When I&apos;m not pondering the mysteries of the 
+                  Hi, I&apos;m Dev—a chill philosopher, aspiring polymath, and a physicist-in-the-making. When I&apos;m not pondering the mysteries of the 
                   universe, I&apos;m probably getting absolutely demolished in Catan by my best friend (despite my <em>undeniable</em> strategic genius).
                 </p>
                 <p>
