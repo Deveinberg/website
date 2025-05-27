@@ -18,9 +18,13 @@ export const metadata: Metadata = {
   keywords: ["Dev Verma", "Physics", "NTU Singapore", "Quantum Computing", "Research", "Graduate Scholar"],
   authors: [{ name: "Dev Verma" }],
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/images/favicon.png", sizes: "any" },
+      { url: "/images/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon.png", sizes: "16x16", type: "image/png" }
+    ],
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
   },
   openGraph: {
     title: "Dev Verma - Graduate Scholar from NTU Singapore",
@@ -39,6 +43,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/images/favicon.png?v=2" type="image/png" />
+        <link rel="shortcut icon" href="/images/favicon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/favicon.png?v=2" />
+      </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
       </body>
