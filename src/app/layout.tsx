@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   keywords: ["Dev Verma", "Physics", "NTU Singapore", "Quantum Computing", "Research", "Graduate Scholar"],
   authors: [{ name: "Dev Verma" }],
   icons: {
-    icon: "/images/site-icon-pic.png",
-    shortcut: "/images/site-icon-pic.png",
-    apple: "/images/site-icon-pic.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "Dev Verma - Graduate Scholar from NTU Singapore",

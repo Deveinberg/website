@@ -237,7 +237,7 @@ export default function Home() {
             {[
               {
                 title: "ITU and Quantum Coalition's FLIQ 2025",
-                subtitle: "Quantum Algorithms Challenge Winner",
+                subtitle: "Quantum Algorithms Challenge and Overall Education Track Winner",
                 description: "A guided, structured tutorial on understanding Quantum Error Correction with the Surface-17 code, that won me a trip to CERN.",
                 tech: ["Quantum Computing", "Error Correction", "Surface Code"],
                 icon: <Award className="w-8 h-8" />,
