@@ -4,12 +4,14 @@ import "./globals.css";
 
 const inter = Inter({ 
   subsets: ["latin"],
-  variable: "--font-inter"
+  variable: "--font-inter",
+  display: "swap"
 });
 
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ["latin"],
-  variable: "--font-mono"
+  variable: "--font-mono",
+  display: "swap"
 });
 
 export const metadata: Metadata = {
@@ -44,6 +46,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/favicon.png?v=2" type="image/png" />
         <link rel="shortcut icon" href="/images/favicon.png?v=2" type="image/png" />
         <link rel="apple-touch-icon" href="/images/favicon.png?v=2" />

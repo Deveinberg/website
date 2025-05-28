@@ -22,6 +22,11 @@ body {
   background-color: #000000 !important;
   color: #ffffff !important;
   font-feature-settings: "rlig" 1, "calt" 1;
+  /* Improved text rendering for Safari */
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer components {
@@ -31,6 +36,36 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    /* Safari fixes */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    /* Fallback for problematic browsers */
+    @supports not (-webkit-background-clip: text) {
+      color: #60a5fa;
+      background: none;
+    }
+    /* Additional Safari mobile fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  
+  /* Safari iOS specific fallback */
+  .gradient-text-safe {
+    color: #60a5fa;
+    font-weight: 700;
+  }
+  
+  /* Use solid color on Safari iOS when gradient causes issues */
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    @supports (-webkit-touch-callout: none) {
+      .gradient-text {
+        background: none !important;
+        color: #60a5fa !important;
+        -webkit-text-fill-color: #60a5fa !important;
+      }
+    }
   }
   
   .tech-border {

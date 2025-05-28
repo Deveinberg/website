@@ -242,7 +242,8 @@ export default function Home() {
                 tech: ["Quantum Computing", "Error Correction", "Surface Code"],
                 icon: <Award className="w-8 h-8" />,
                 status: "Winner",
-                image: "/images/fliq-pic.png"
+                image: "/images/fliq-pic.png",
+                link: "https://github.com/TheSonOfKrypton/FLIQ-Hackathon-2025"
               },
               {
                 title: "Benchmarking Quantum Gate Decomposition",
@@ -271,51 +272,70 @@ export default function Home() {
                 status: "Completed",
                 image: "/images/polydisp-pic.png"
               }
-            ].map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="tech-border rounded-lg p-8 bg-gray-900/50 hover:bg-gray-800/50 transition-all duration-300 group cursor-pointer"
-              >
-                {/* Project Image */}
-                <div className="mb-6 h-48 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                
-                <div className="flex items-start justify-between mb-4">
-                  <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
-                    {project.icon}
+            ].map((project, index) => {
+              const ProjectCard = (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="tech-border rounded-lg p-8 bg-gray-900/50 hover:bg-gray-800/50 transition-all duration-300 group cursor-pointer"
+                >
+                  {/* Project Image */}
+                  <div className="mb-6 h-48 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                    project.status === 'Winner' ? 'bg-yellow-900/30 text-yellow-300' :
-                    project.status === 'Ongoing' ? 'bg-blue-900/30 text-blue-300' :
-                    'bg-green-900/30 text-green-300'
-                  }`}>
-                    {project.status}
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <h4 className="text-blue-400 text-sm mb-3 font-medium">{project.subtitle}</h4>
-                <p className="text-gray-400 mb-6 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-3 py-1 bg-gray-800 rounded-full text-sm font-mono text-gray-300"
-                    >
-                      {tech}
+                  
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
+                      {project.icon}
+                    </div>
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      project.status === 'Winner' ? 'bg-yellow-900/30 text-yellow-300' :
+                      project.status === 'Ongoing' ? 'bg-blue-900/30 text-blue-300' :
+                      'bg-green-900/30 text-green-300'
+                    }`}>
+                      {project.status}
                     </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <h4 className="text-blue-400 text-sm mb-3 font-medium">{project.subtitle}</h4>
+                  <p className="text-gray-400 mb-6 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="px-3 py-1 bg-gray-800 rounded-full text-sm font-mono text-gray-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+
+              // If project has a link, wrap it in an anchor tag
+              if (project.link) {
+                return (
+                  <a
+                    key={index}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    {ProjectCard}
+                  </a>
+                );
+              }
+
+              return ProjectCard;
+            })}
           </div>
           
                     <motion.div 
