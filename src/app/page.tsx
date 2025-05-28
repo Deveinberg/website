@@ -325,8 +325,8 @@ export default function Home() {
                   <a
                     key={index}
                     href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
                     className="block"
                   >
                     {ProjectCard}

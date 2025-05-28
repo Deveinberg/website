@@ -53,9 +53,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code", // You'll need to add this from Google Search Console
-  },
   category: "Science & Technology",
   classification: "Academic Portfolio",
   icons: {
