@@ -15,6 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://devverma.com'),
   title: {
     default: "Dev Verma - Graduate Scholar from NTU Singapore | Quantum Computing Researcher",
     template: "%s | Dev Verma - Quantum Computing Researcher"
