@@ -147,7 +147,7 @@ export default function Home() {
       <CollapsibleLogo />
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative pt-[20vh]">
+      <section id="home" className="min-h-screen flex items-center justify-center relative pt-[20vh]" itemScope itemType="https://schema.org/Person">
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
           <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse delay-1000"></div>
@@ -161,14 +161,14 @@ export default function Home() {
           animate="animate"
         >
 
-
           <motion.h1 
             variants={fadeInUp}
             className="text-5xl md:text-7xl font-bold mb-12 leading-tight"
+            itemProp="name"
           >
             Hi, I am a{' '}
-            <span className="gradient-text">young physicist</span>{' '}
-            based in Singapore
+            <span className="gradient-text" itemProp="jobTitle">young physicist</span>{' '}
+            based in <span itemProp="address" itemScope itemType="https://schema.org/Place"><span itemProp="name">Singapore</span></span>
           </motion.h1>
           
           <motion.p 
