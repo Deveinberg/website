@@ -131,7 +131,7 @@ export default function Home() {
             </a>
           </DockIcon>
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="https://iwonderwhy.bearblog.dev" className="flex items-center justify-center w-full h-full">
+            <Link href="https://iwonderwhy.bearblog.dev" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
               <BookOpen className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
