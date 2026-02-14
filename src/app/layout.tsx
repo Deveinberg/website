@@ -17,10 +17,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://devverma.com'),
   title: {
-    default: "Dev Verma - Graduate Scholar from NTU Singapore | Quantum Computing Researcher",
+    default: "Dev Verma - NQSS Scholar at NTU Singapore | Quantum Computing Researcher",
     template: "%s | Dev Verma - Quantum Computing Researcher"
   },
-  description: "Dev Verma is a Graduate Scholar from Nanyang Technological University (NTU) Singapore specializing in quantum computing, quantum error correction, and computational physics. FLIQ 2025 winner with expertise in quantum gate decomposition and surface codes.",
+  description: "Dev Verma is a NQSS Scholar at Nanyang Technological University (NTU) Singapore specializing in quantum computing, quantum error correction, and computational physics. FLIQ 2025 winner with expertise in quantum gate decomposition and surface codes.",
   keywords: [
     "Dev Verma", 
     "Physics", 
@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     "Quantum Gates",
     "Research", 
     "Graduate Scholar",
+    "NQSS Scholar",
+    "National Quantum Scholarship Scheme",
     "FLIQ 2025",
     "CERN",
     "Quantum Algorithms",
@@ -66,8 +68,8 @@ export const metadata: Metadata = {
     apple: "/images/favicon.png",
   },
   openGraph: {
-    title: "Dev Verma - Graduate Scholar from NTU Singapore | Quantum Computing Researcher",
-    description: "Graduate Scholar from Nanyang Technological University specializing in quantum computing, quantum error correction, and computational physics. FLIQ 2025 winner with expertise in quantum gate decomposition.",
+    title: "Dev Verma - NQSS Scholar from NTU Singapore | Quantum Computing Researcher",
+    description: "NQSS Scholar from Nanyang Technological University specializing in quantum computing, quantum error correction, and computational physics. FLIQ 2025 winner with expertise in quantum gate decomposition.",
     url: "https://devverma.com",
     siteName: "Dev Verma - Quantum Computing Researcher",
     type: "website",
@@ -105,7 +107,7 @@ export default function RootLayout({
     "name": "Dev Verma",
     "url": "https://devverma.com",
     "image": "https://devverma.com/images/about-pic.jpeg",
-    "description": "Graduate Scholar from Nanyang Technological University specializing in quantum computing, quantum error correction, and computational physics.",
+    "description": "NQSS Scholar at Nanyang Technological University specializing in quantum computing, quantum error correction, and computational physics.",
     "jobTitle": "Quantum Computing Researcher",
     "worksFor": {
       "@type": "EducationalOrganization",
@@ -139,6 +141,11 @@ export default function RootLayout({
         "@type": "Award", 
         "name": "NTUSE Scholar",
         "description": "Scholar at Nanyang Technological University"
+      },
+      {
+        "@type": "Award", 
+        "name": "NQSS Scholar",
+        "description": "National Quantum Scholarship Scheme Scholar at Nanyang Technological University for Master's by Research in Quantum Information Theory"
       }
     ],
     "sameAs": [
@@ -146,7 +153,7 @@ export default function RootLayout({
       "https://linkedin.com/in/7devverma"
     ],
     "email": "dev@devverma.com",
-    "nationality": "Singapore"
+    "nationality": "NA"
   };
 
   return (
