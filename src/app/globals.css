@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Force dark theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  /* Improved text rendering for Safari */
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(to right, #60a5fa, #a855f7, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Safari fixes */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    /* Fallback for problematic browsers */
+    @supports not (-webkit-background-clip: text) {
+      color: #60a5fa;
+      background: none;
+    }
+    /* Additional Safari mobile fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  
+  /* Safari iOS specific fallback */
+  .gradient-text-safe {
+    color: #60a5fa;
+    font-weight: 700;
+  }
+  
+  /* Use solid color on Safari iOS when gradient causes issues */
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    @supports (-webkit-touch-callout: none) {
+      .gradient-text {
+        background: none !important;
+        color: #60a5fa !important;
+        -webkit-text-fill-color: #60a5fa !important;
+      }
+    }
+  }
+  
+  .tech-border {
+    border: 1px solid #374151;
+    transition: border-color 0.3s ease;
+  }
+  
+  .tech-border:hover {
+    border-color: #4b5563;
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  
+  .code-block {
+    background-color: #111827;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+  
+  .section-padding {
+    padding: 8rem 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 10rem 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: 12rem 6rem;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
