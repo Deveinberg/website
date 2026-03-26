@@ -417,7 +417,7 @@ export default function Home() {
                 <p>
                   Beyond physics, I take inspiration from <strong>Leonardo da Vinci</strong>, striving to explore everything that catches my eye. You might find me 
                   unleashing sacrifices on the chessboard, losing myself in <strong>stoic philosophy</strong>, or storyboarding ideas for a film I&apos;ll <em>maybe</em> direct one day. 
-                  I also occasionally write about my thoughts and projects on <a href="https://iwonderwhy.bearblog.dev" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">my blog</a>.
+                  I also occasionally write longer, structured pieces about my thoughts and projects on <a href="/blog" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">my blog</a>.
                 </p>
                 <p>
                   Richard Feynman once said, <em>&quot;I was born not knowing, and have had only a little time to change that here and there.&quot;</em> That pretty 
