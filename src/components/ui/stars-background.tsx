@@ -9,7 +9,7 @@ interface StarsBackgroundProps {
 
 export const StarsBackground: React.FC<StarsBackgroundProps> = ({ className }) => {
   return (
-    <div className={cn("fixed inset-0 overflow-hidden z-0", className)}>
+    <div className={cn("fixed inset-0 overflow-hidden z-0 pointer-events-none", className)}>
       {/* Background with radial gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,rgba(0,0,0,0)_80%)]" />
       

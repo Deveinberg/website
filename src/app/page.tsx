@@ -131,7 +131,7 @@ export default function Home() {
             </a>
           </DockIcon>
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="https://iwonderwhy.bearblog.dev" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+            <Link href="/blog" className="flex items-center justify-center w-full h-full">
               <BookOpen className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
@@ -417,7 +417,7 @@ export default function Home() {
                 <p>
                   Beyond physics, I take inspiration from <strong>Leonardo da Vinci</strong>, striving to explore everything that catches my eye. You might find me 
                   unleashing sacrifices on the chessboard, losing myself in <strong>stoic philosophy</strong>, or storyboarding ideas for a film I&apos;ll <em>maybe</em> direct one day. 
-                  I also occasionally write about my thoughts and projects on <a href="https://iwonderwhy.bearblog.dev" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">my blog</a>.
+                  I also occasionally write longer, structured pieces about my thoughts and projects on <a href="/blog" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">my blog</a>.
                 </p>
                 <p>
                   Richard Feynman once said, <em>&quot;I was born not knowing, and have had only a little time to change that here and there.&quot;</em> That pretty 
@@ -468,7 +468,7 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 text-center sm:text-left">
-              <a 
+              <a
                 href="mailto:dev@devverma.com"
                 className="flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors glow-effect text-lg font-semibold"
               >
@@ -493,6 +493,32 @@ export default function Home() {
                 <Github className="w-5 h-5" />
                 GitHub
               </a>
+            </div>
+
+            <div className="mt-2 border-t border-gray-800 pt-8 max-w-md mx-auto">
+              <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Or subscribe to my Substack</p>
+              <form
+                className="flex gap-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
+                  window.open(`https://dverma.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+                }}
+              >
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="your@email.com"
+                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 hover:border-gray-500 focus:border-blue-500 focus:outline-none rounded-lg text-white placeholder-gray-500 transition-colors text-sm"
+                />
+                <button
+                  type="submit"
+                  className="px-5 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold text-sm transition-colors whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </motion.div>
         </div>

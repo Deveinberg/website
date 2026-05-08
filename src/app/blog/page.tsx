@@ -95,7 +95,7 @@ export default function BlogPage() {
       <CollapsibleLogo />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 section-padding">
+      <section className="pt-32 pb-12 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -113,51 +113,54 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Coming Soon Section */}
-      <section className="section-padding">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Substack Section */}
+      <section className="py-12 px-6 md:px-12 lg:px-24">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-900/30 rounded-2xl p-12 tech-border"
+            className="bg-gray-900/30 rounded-2xl p-10 tech-border"
           >
-            <div className="mb-8">
-              <BookOpen className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Coming Soon</h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                I'm currently working on some exciting research content and reflections 
-                to share with you. Stay tuned for deep dives into quantum computing, 
-                my research work, and my favorite ukulele songs.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="section-padding relative">
-        <div className="max-w-2xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-gray-300 mb-6">
-              Get notified when I publish new insights about quantum physics, research updates, 
-              and reflections from my academic journey.
+            <BookOpen className="w-12 h-12 text-blue-400 mx-auto mb-5" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">Check it out on my Substack</h2>
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              I write about quantum computing, research, and whatever else is on my mind.
             </p>
-            <p className="text-gray-400 text-sm mb-8">
-              Clicking subscribe will open your email client with a pre-filled message to dev@devverma.com. 
-              Just hit send to sign up!
-            </p>
-            <a 
-              href="mailto:dev@devverma.com?subject=Newsletter Subscription&body=Hey, sign me up!"
-              className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
+            <a
+              href="https://dverma.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold text-base transition-colors glow-effect mb-8"
             >
-              Subscribe
+              Read on Substack →
             </a>
+
+            <div className="border-t border-gray-700 pt-8">
+              <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Subscribe</p>
+              <form
+                className="flex gap-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
+                  window.open(`https://dverma.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+                }}
+              >
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="your@email.com"
+                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 hover:border-gray-500 focus:border-blue-500 focus:outline-none rounded-lg text-white placeholder-gray-500 transition-colors text-sm"
+                />
+                <button
+                  type="submit"
+                  className="px-5 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold text-sm transition-colors whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -165,7 +168,7 @@ export default function BlogPage() {
       {/* Footer */}
       <footer className="relative z-10 border-t border-gray-800 py-8 bg-black/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 text-center text-gray-400">
-          <p>&copy; 2025 Dev Verma. Graduate Scholar from NTU Singapore.</p>
+          <p>&copy; 2026 Dev Verma. NQSS Scholar at NTU Singapore.</p>
         </div>
       </footer>
     </main>
