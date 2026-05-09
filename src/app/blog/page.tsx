@@ -139,7 +139,7 @@ export default function BlogPage() {
             <div className="border-t border-gray-700 pt-8">
               <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Subscribe</p>
               <form
-                className="flex gap-3"
+                className="flex flex-col sm:flex-row gap-3"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;

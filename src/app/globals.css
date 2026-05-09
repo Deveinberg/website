@@ -93,13 +93,13 @@ body {
   .section-padding {
     padding: 8rem 1.5rem;
   }
-  
+
   @media (min-width: 768px) {
     .section-padding {
       padding: 10rem 3rem;
     }
   }
-  
+
   @media (min-width: 1024px) {
     .section-padding {
       padding: 12rem 6rem;

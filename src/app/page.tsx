@@ -498,7 +498,7 @@ export default function Home() {
             <div className="mt-2 border-t border-gray-800 pt-8 max-w-md mx-auto">
               <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Or subscribe to my Substack</p>
               <form
-                className="flex gap-3"
+                className="flex flex-col sm:flex-row gap-3"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
