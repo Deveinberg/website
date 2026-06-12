@@ -89,7 +89,6 @@ export const metadata: Metadata = {
     title: "Dev Verma - Graduate Scholar from NTU Singapore | Quantum Computing Researcher",
     description: "Graduate Scholar from NTU Singapore specializing in quantum computing and quantum error correction. FLIQ 2025 winner.",
     images: ["/images/og-card.png"],
-    creator: "@devverma", // Add your Twitter handle if you have one
   },
   alternates: {
     canonical: "https://devverma.com",

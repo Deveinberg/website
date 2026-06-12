@@ -133,7 +133,7 @@ export default function Home() {
           >
             Who wouldn&apos;t want a career where overthinking is a job requirement?
             <span className="gradient-text"> NQSS Master&apos;s Scholar</span> pursuing an MSc by Research at Nanyang Technological University, currently
-            deep in quantum information and the fine art of taking quantum gates apart.
+            deep in quantum information, with a soft spot for taking quantum gates apart.
           </motion.p>
           
                     <motion.div
@@ -257,7 +257,7 @@ export default function Home() {
                     detail: "URECA research project under Professor Bent Weber."
                   },
                   {
-                    year: "2025",
+                    year: "2024–25",
                     title: "Benchmarking Quantum Gate Decomposition",
                     detail: "Final Year Project under Professor Mile Gu."
                   },
@@ -267,9 +267,9 @@ export default function Home() {
                     detail: "Quantum Algorithms Challenge and Overall Education Track. Won a trip to CERN."
                   },
                   {
-                    year: "2025–now",
+                    year: "2026–now",
                     title: "MSc by Research at NTU",
-                    detail: "NQSS Scholar exploring quantum computing and gate decomposition."
+                    detail: "NQSS Scholar in quantum information theory."
                   }
                 ].map((step, index) => (
                   <motion.li
