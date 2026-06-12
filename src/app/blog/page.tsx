@@ -7,11 +7,15 @@ import { Dock, DockIcon } from '@/components/ui/dock';
 import { ShootingStars } from '@/components/ui/shooting-stars';
 import { StarsBackground } from '@/components/ui/stars-background';
 import { CollapsibleLogo } from '@/components/ui/collapsible-logo';
+import { ScrollProgress } from '@/components/ui/scroll-progress';
 
 export default function BlogPage() {
   return (
     <MotionConfig reducedMotion="user">
     <main className="min-h-screen bg-black text-white relative">
+      {/* Scroll progress indicator */}
+      <ScrollProgress />
+
       {/* Stars Background */}
       <StarsBackground />
       

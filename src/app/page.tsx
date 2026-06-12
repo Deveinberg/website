@@ -24,6 +24,7 @@ import { Dock, DockIcon } from '@/components/ui/dock';
 import { ShootingStars } from '@/components/ui/shooting-stars';
 import { StarsBackground } from '@/components/ui/stars-background';
 import { CollapsibleLogo } from '@/components/ui/collapsible-logo';
+import { ScrollProgress } from '@/components/ui/scroll-progress';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -72,9 +73,12 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white overflow-hidden relative">
       {/* Unified Background Gradient - spans entire page height */}
       <div className="absolute inset-0 w-full min-h-full z-0">
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-purple-900/30 via-blue-900/20 via-gray-900/10 to-black"></div>
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-purple-900/30 via-blue-900/20 via-cyan-900/10 to-black"></div>
       </div>
       
+      {/* Scroll progress indicator */}
+      <ScrollProgress />
+
       {/* Stars Background */}
       <StarsBackground />
       
@@ -127,10 +131,19 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative pt-24 pb-32" itemScope itemType="https://schema.org/Person">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse delay-2000"></div>
+        {/* Atomic orbit decoration behind the headline */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+          <div className="atom-orbits">
+            <div className="atom-orbit atom-orbit-1">
+              <div className="atom-ring"><span className="electron text-blue-400 bg-blue-400" /></div>
+            </div>
+            <div className="atom-orbit atom-orbit-2">
+              <div className="atom-ring"><span className="electron text-purple-400 bg-purple-400" /></div>
+            </div>
+            <div className="atom-orbit atom-orbit-3">
+              <div className="atom-ring"><span className="electron text-cyan-400 bg-cyan-400" /></div>
+            </div>
+          </div>
         </div>
         
         <motion.div
@@ -155,7 +168,7 @@ export default function Home() {
             className="text-lg md:text-2xl text-gray-300 mb-10 md:mb-16 max-w-3xl mx-auto leading-relaxed"
           >
             Who wouldn&apos;t want a career where overthinking is a job requirement?  
-            <span className="gradient-text"> NQSS Master's Scholar</span> pursuing an MSc by Research at Nanyang Technological University, exploring quantum mysteries 
+            <span className="gradient-text"> NQSS Master&apos;s Scholar</span> pursuing an MSc by Research at Nanyang Technological University, exploring quantum mysteries 
             and computational frontiers.
           </motion.p>
           
@@ -163,15 +176,15 @@ export default function Home() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-10 md:mb-16"
           >
-            <a 
+            <a
               href="#work"
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors glow-effect"
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-all hover:scale-[1.03] active:scale-[0.97] glow-effect"
             >
               View My Projects
           </a>
           <a
               href="mailto:dev@devverma.com"
-              className="px-8 py-3 border border-gray-600 hover:border-gray-400 rounded-lg font-semibold transition-colors"
+              className="px-8 py-3 border border-gray-600 hover:border-gray-400 rounded-lg font-semibold transition-all hover:scale-[1.03] active:scale-[0.97]"
             >
               Get In Touch
             </a>
@@ -415,7 +428,7 @@ export default function Home() {
                 <p>
                   Beyond physics, I take inspiration from <strong>Leonardo da Vinci</strong>, striving to explore everything that catches my eye. You might find me 
                   unleashing sacrifices on the chessboard, losing myself in <strong>stoic philosophy</strong>, or storyboarding ideas for a film I&apos;ll <em>maybe</em> direct one day. 
-                  I also occasionally write longer, structured pieces about my thoughts and projects on <Link href="/blog" className="text-blue-400 hover:text-blue-300 underline">my blog</Link>.
+                  I also occasionally write longer, structured pieces about my thoughts and projects on <Link href="/blog" className="text-blue-400 hover:text-blue-300 link-underline">my blog</Link>.
                 </p>
                 <p>
                   Richard Feynman once said, <em>&quot;I was born not knowing, and have had only a little time to change that here and there.&quot;</em> That pretty 
@@ -425,6 +438,56 @@ export default function Home() {
               </div>
             </div>
             
+            {/* Research journey timeline */}
+            <div className="mt-20 max-w-2xl mx-auto text-left">
+              <h3 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+                The <span className="gradient-text">Journey</span> So Far
+              </h3>
+              <ol className="relative border-l border-gray-800 ml-3 space-y-10">
+                {[
+                  {
+                    year: "2022–23",
+                    title: "Polydispersity in Glassy Systems",
+                    detail: "URECA research project under Professor Massimo Pica Ciamarra."
+                  },
+                  {
+                    year: "2023–24",
+                    title: "Real-Time Vibration Analysis",
+                    detail: "URECA research project under Professor Bent Weber."
+                  },
+                  {
+                    year: "2025",
+                    title: "Benchmarking Quantum Gate Decomposition",
+                    detail: "Final Year Project under Professor Mile Gu."
+                  },
+                  {
+                    year: "2025",
+                    title: "FLIQ 2025 Winner",
+                    detail: "Quantum Algorithms Challenge and Overall Education Track — won a trip to CERN."
+                  },
+                  {
+                    year: "2025–now",
+                    title: "MSc by Research at NTU",
+                    detail: "NQSS Scholar exploring quantum computing and gate decomposition."
+                  }
+                ].map((step, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="relative pl-8"
+                  >
+                    <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-500/20" aria-hidden="true" />
+                    <div className="font-mono text-sm text-blue-400 mb-1">{step.year}</div>
+                    <div className="font-semibold text-white">{step.title}</div>
+                    <div className="text-gray-400 text-sm mt-1">{step.detail}</div>
+                  </motion.li>
+                ))}
+              </ol>
+            </div>
+
             <div className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
               {[
                 { label: "University", value: "NTU", desc: "Singapore" },
@@ -468,7 +531,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 text-center sm:text-left">
               <a
                 href="mailto:dev@devverma.com"
-                className="flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors glow-effect text-lg font-semibold"
+                className="flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all hover:scale-[1.03] active:scale-[0.97] glow-effect text-lg font-semibold"
               >
                 <Mail className="w-5 h-5" />
                 dev@devverma.com

@@ -53,14 +53,18 @@ Reviewed code + live screenshots at 1440×900 and 390×844.
 - [x] Typography scale: hero tightened in P1; section h2s now `text-3xl sm:text-4xl md:text-5xl` consistently; blog h1 gets matching mobile step.
 - [x] Global `:focus-visible` ring in the blue accent (globals.css).
 
-### Phase 3 — "Next level" upgrades
-- [ ] Section transitions: subtle scroll-linked parallax on the star layers, gradient hue shift per section (purple → blue → cyan) so scrolling feels like traveling.
-- [ ] Research timeline: replace flat card grid order with a vertical timeline (2022 URECA → 2023 URECA → 2025 FYP → FLIQ → MSc) — tells a story, perfect for an academic portfolio.
-- [ ] Dock upgrades: scroll-progress indicator, magnification already exists — add labels on long-press for touch.
-- [ ] Hero signature moment: one distinctive interactive element (e.g. a small animated Bloch sphere / orbiting particle around the gradient text) instead of three generic pulse dots.
-- [ ] OG image: dedicated 1200×630 branded card (currently reuses the about photo).
-- [ ] Micro-interactions: magnetic CTA buttons, animated underline on inline links, count-up on stats when scrolled into view.
-- [ ] Lighthouse pass: target 95+ on Performance/A11y/Best Practices after the above; remove `ignoreBuildErrors`/`ignoreDuringBuilds` and fix whatever surfaces.
+### Phase 3 — "Next level" upgrades ✅ (done 2026-06-12, verified via screenshots + Lighthouse + `npm run build`)
+- [x] Section transitions: star field gets a subtle scroll-linked parallax drift (framer `useScroll` in StarsBackground); page gradient now journeys purple → blue → cyan → black.
+- [x] Research timeline: added "The Journey So Far" vertical timeline in the About section (2022 URECA → 2023 URECA → 2025 FYP → FLIQ → MSc). *Decision: kept the featured-card project grid from Phase 2 instead of replacing it — the timeline lives in About and reuses existing copy only.*
+- [x] Scroll-progress indicator: gradient bar at top of viewport (`ScrollProgress` component, both pages). *Long-press dock labels skipped — `title` attrs from P1 cover hover; revisit if touch users complain.*
+- [x] Hero signature moment: three generic pulse dots replaced with an animated atom — 3 tilted elliptical orbits with glowing electrons behind the headline (CSS-only, dies gracefully under reduced motion).
+- [x] OG image: branded 1200×630 card generated at `public/images/og-card.png`, wired into OpenGraph + Twitter metadata (was the about photo).
+- [x] Micro-interactions: CTAs get hover/active scale; inline links get a draw-in underline (`.link-underline`). *Skipped: count-up stats (only one stat is numeric) and magnetic buttons (gimmick risk).*
+- [x] Build hygiene: removed `ignoreBuildErrors`/`ignoreDuringBuilds`; fixed everything that surfaced (unescaped entity, unused import, 4 `any`s, and a real `rules-of-hooks` violation in dock.tsx).
+- [x] Perf: ShootingStars rewritten from setState-per-frame (60fps React re-renders) to ref-based direct SVG attribute updates.
+
+**Lighthouse (static build, headless Chrome, 2026-06-12):** Accessibility 100, Best Practices 100, SEO 100. Performance: desktop 82 (was 68 before the ShootingStars fix; LCP 1.4s, TBT 310ms), mobile-throttled 48 (LCP 5.5s, TBT ~4s).
+*Open item:* mobile lab score is bounded by React + framer-motion hydration under 4× CPU throttle — the LCP element (hero paragraph) sits at `opacity: 0` until hydration. Getting to 95+ mobile means taking framer off the critical path (CSS-only entrance animations or dynamic import). Architectural trade-off — discuss before doing.
 
 ### Out of scope (for later, per Dev)
 - Copywriting changes (hero line, about text, project descriptions).

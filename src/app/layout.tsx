@@ -76,11 +76,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/about-pic.jpeg",
+        url: "/images/og-card.png",
         width: 1200,
         height: 630,
-        alt: "Dev Verma - Graduate Scholar from NTU Singapore",
-        type: "image/jpeg"
+        alt: "Dev Verma - Quantum Computing Researcher, NQSS Scholar at NTU Singapore",
+        type: "image/png"
       }
     ],
   },
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dev Verma - Graduate Scholar from NTU Singapore | Quantum Computing Researcher",
     description: "Graduate Scholar from NTU Singapore specializing in quantum computing and quantum error correction. FLIQ 2025 winner.",
-    images: ["/images/about-pic.jpeg"],
+    images: ["/images/og-card.png"],
     creator: "@devverma", // Add your Twitter handle if you have one
   },
   alternates: {
