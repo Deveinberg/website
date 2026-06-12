@@ -78,8 +78,8 @@ export default function BlogPage() {
               <span className="gradient-text">Research</span> & Reflections
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Sharing insights from my journey as a graduate scholar from NTU Singapore. 
-              From quantum computing breakthroughs to the everyday mysteries of research life.
+              Longer-form writing from my corner of NTU Singapore — quantum computing,
+              research life, and the occasional philosophical detour.
             </p>
           </motion.div>
         </div>
@@ -95,9 +95,9 @@ export default function BlogPage() {
             className="bg-gray-900/30 rounded-2xl p-10 tech-border"
           >
             <BookOpen className="w-12 h-12 text-blue-400 mx-auto mb-5" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">Check it out on my Substack</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">It all lives on Substack</h2>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              I write about quantum computing, research, and whatever else is on my mind.
+              Quantum computing, research, and whatever else refuses to leave my head until it&apos;s written down.
             </p>
             <a
               href="https://dverma.substack.com"

@@ -66,8 +66,15 @@ Reviewed code + live screenshots at 1440×900 and 390×844.
 **Lighthouse (static build, headless Chrome, 2026-06-12):** Accessibility 100, Best Practices 100, SEO 100. Performance: desktop 82 (was 68 before the ShootingStars fix; LCP 1.4s, TBT 310ms), mobile-throttled 48 (LCP 5.5s, TBT ~4s).
 *Open item:* mobile lab score is bounded by React + framer-motion hydration under 4× CPU throttle — the LCP element (hero paragraph) sits at `opacity: 0` until hydration. Getting to 95+ mobile means taking framer off the critical path (CSS-only entrance animations or dynamic import). Architectural trade-off — discuss before doing.
 
+### Phase 4 — Copy pass ✅ (done 2026-06-12, verified via screenshots + `npm run build`)
+Voice principles: keep the self-deprecating humor (it's the brand), introduce Dev by name in the hero, every project description says what the thing actually is (no restating titles), no overclaiming, no invented facts. About bio left untouched — it's the strongest copy on the site.
+- [x] Hero: "Hi, I'm **Dev** — a young physicist based in Singapore" (gradient moved to the name); sub now ends "…currently deep in quantum information and the fine art of taking quantum gates apart"; scroll cue is "See what the overthinking produced" (pays off the joke).
+- [x] Project descriptions: GitHub ("The code behind the research…"), FLIQ grammar fixed with a zeugma ("it won the Education Track, and me a trip to CERN"), FYP/Vibration/Polydispersity each open with the actual research question instead of restating the title.
+- [x] Stats row: "Status / Master's / Student" → "MSc / Degree / by Research".
+- [x] Blog page: sub no longer claims "breakthroughs"; Substack card is "It all lives on Substack".
+- [x] Untouched as planned: About bio paragraphs, contact section, footer, SEO metadata.
+
 ### Out of scope (for later, per Dev)
-- Copywriting changes (hero line, about text, project descriptions).
 - New content/pages (CV page, publications list) — worth discussing after UI pass.
 
 ## Working notes

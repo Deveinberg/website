@@ -158,8 +158,8 @@ export default function Home() {
             className="text-4xl sm:text-5xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight text-balance"
             itemProp="name"
           >
-            Hi, I am a{' '}
-            <span className="gradient-text" itemProp="jobTitle">young physicist</span>{' '}
+            Hi, I&apos;m <span className="gradient-text">Dev</span> — a{' '}
+            <span itemProp="jobTitle">young physicist</span>{' '}
             based in <span itemProp="address" itemScope itemType="https://schema.org/Place"><span itemProp="name">Singapore</span></span>
           </motion.h1>
           
@@ -167,9 +167,9 @@ export default function Home() {
             variants={fadeInUp}
             className="text-lg md:text-2xl text-gray-300 mb-10 md:mb-16 max-w-3xl mx-auto leading-relaxed"
           >
-            Who wouldn&apos;t want a career where overthinking is a job requirement?  
-            <span className="gradient-text"> NQSS Master&apos;s Scholar</span> pursuing an MSc by Research at Nanyang Technological University, exploring quantum mysteries 
-            and computational frontiers.
+            Who wouldn&apos;t want a career where overthinking is a job requirement?
+            <span className="gradient-text"> NQSS Master&apos;s Scholar</span> pursuing an MSc by Research at Nanyang Technological University, currently
+            deep in quantum information and the fine art of taking quantum gates apart.
           </motion.p>
           
                     <motion.div
@@ -199,7 +199,7 @@ export default function Home() {
               href="#work"
               className="flex flex-col items-center gap-2 text-gray-400 hover:text-gray-300 transition-colors cursor-pointer group"
             >
-              <span className="text-sm font-medium">Some of my projects</span>
+              <span className="text-sm font-medium">See what the overthinking produced</span>
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -230,7 +230,7 @@ export default function Home() {
               {
                 title: "ITU and Quantum Coalition's FLIQ 2025",
                 subtitle: "Quantum Algorithms Challenge and Overall Education Track Winner",
-                description: "A guided, structured tutorial on understanding Quantum Error Correction with the Surface-17 code, that won me a trip to CERN.",
+                description: "A guided, hands-on tutorial on quantum error correction with the Surface-17 code — it won the Education Track, and me a trip to CERN.",
                 tech: ["Quantum Computing", "Error Correction", "Surface Code"],
                 icon: <Award className="w-8 h-8" />,
                 status: "Winner",
@@ -241,7 +241,7 @@ export default function Home() {
               {
                 title: "Open Source Contributions",
                 subtitle: "GitHub Portfolio",
-                description: "Explore my collection of quantum computing projects, research code, and computational physics implementations.",
+                description: "The code behind the research — quantum computing experiments, physics simulations, and whatever else I've been building in the open.",
                 tech: ["Python", "Quantum Computing", "Open Source"],
                 icon: <Github className="w-8 h-8" />,
                 status: "Active",
@@ -251,7 +251,7 @@ export default function Home() {
               {
                 title: "Benchmarking Quantum Gate Decomposition",
                 subtitle: "Final Year Project (2025)",
-                description: "My Final Year Project at Nanyang Technological University, under the supervision of Professor Mile Gu.",
+                description: "How well do different frameworks break quantum gates into the ones hardware can actually run? My Final Year Project, under Professor Mile Gu, set out to measure exactly that.",
                 tech: ["Quantum Gates", "Benchmarking", "Research"],
                 icon: <Atom className="w-8 h-8" />,
                 status: "Completed",
@@ -260,7 +260,7 @@ export default function Home() {
               {
                 title: "Real-Time Vibration Analysis",
                 subtitle: "URECA 2023-24 Project",
-                description: "Real-Time Measurement and Analysis of Vibrations under the supervision of Professor Bent Weber.",
+                description: "Catching tremors as they happen — building a pipeline to measure and analyse lab vibrations in real time, under Professor Bent Weber.",
                 tech: ["Signal Processing", "Real-time Analysis", "Sensors"],
                 icon: <Zap className="w-8 h-8" />,
                 status: "Completed",
@@ -269,7 +269,7 @@ export default function Home() {
               {
                 title: "Polydispersity in Glassy Systems",
                 subtitle: "URECA 2022-23 Project",
-                description: "Investigating the Effect of Polydispersity in Glassy Systems under the supervision of Professor Massimo Pica Ciamarra.",
+                description: "What changes in a glass when its particles come in every size? Simulating glassy systems to find out, under Professor Massimo Pica Ciamarra.",
                 tech: ["Statistical Physics", "Simulation", "Materials Science"],
                 icon: <Microscope className="w-8 h-8" />,
                 status: "Completed",
@@ -492,7 +492,7 @@ export default function Home() {
               {[
                 { label: "University", value: "NTU", desc: "Singapore" },
                 { label: "Scholarship", value: "NQSS", desc: "Singapore" },
-                { label: "Status", value: "Master's", desc: "Student" },
+                { label: "Degree", value: "MSc", desc: "by Research" },
                 { label: "Projects", value: "10+", desc: "Research" },
                 { label: "Awards", value: "FLIQ", desc: "Winner" }
               ].map((stat, index) => (
