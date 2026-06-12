@@ -11,7 +11,7 @@ export const StarsBackground: React.FC<StarsBackgroundProps> = ({ className }) =
   return (
     <div className={cn("fixed inset-0 overflow-hidden z-0 pointer-events-none", className)}>
       {/* Background with radial gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,rgba(0,0,0,0)_80%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_80%)]" />
       
       {/* Static twinkling stars */}
       <div className="stars absolute inset-0" />
@@ -32,15 +32,15 @@ export const StarsBackground: React.FC<StarsBackgroundProps> = ({ className }) =
           background-repeat: repeat;
           background-size: 400px 300px;
           animation: twinkle 8s ease-in-out infinite;
-          opacity: 0.6;
+          opacity: 0.45;
         }
 
         @keyframes twinkle {
-          0% { opacity: 0.4; }
-          25% { opacity: 0.7; }
-          50% { opacity: 0.9; }
-          75% { opacity: 0.6; }
-          100% { opacity: 0.4; }
+          0% { opacity: 0.3; }
+          25% { opacity: 0.5; }
+          50% { opacity: 0.65; }
+          75% { opacity: 0.45; }
+          100% { opacity: 0.3; }
         }
       `}</style>
     </div>

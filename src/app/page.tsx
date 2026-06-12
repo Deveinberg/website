@@ -1,19 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { 
-  Atom, 
-  Github, 
-  Linkedin, 
-  Mail, 
+import {
+  Atom,
+  Github,
+  Linkedin,
+  Mail,
+  ArrowRight,
   ExternalLink,
   ChevronDown,
   Zap,
   Award,
   BookOpen,
   Microscope,
-  User,
   Home as HomeIcon,
   Briefcase,
   UserCircle,
@@ -68,6 +68,7 @@ export default function Home() {
   }, []);
 
   return (
+    <MotionConfig reducedMotion="user">
     <main className="min-h-screen bg-black text-white overflow-hidden relative">
       {/* Unified Background Gradient - spans entire page height */}
       <div className="absolute inset-0 w-full min-h-full z-0">
@@ -77,38 +78,16 @@ export default function Home() {
       {/* Stars Background */}
       <StarsBackground />
       
-      {/* Multiple shooting star layers with different colors and speeds */}
+      {/* Single shooting star layer — calmer background, less battery drain */}
       <ShootingStars
         starColor="#9E00FF"
         trailColor="#2EB9DF"
         minSpeed={15}
         maxSpeed={35}
-        minDelay={1000}
-        maxDelay={3000}
+        minDelay={1500}
+        maxDelay={4500}
         className="fixed inset-0 z-0"
         starWidth={8}
-        starHeight={1}
-      />
-      <ShootingStars
-        starColor="#FF0099"
-        trailColor="#FFB800"
-        minSpeed={10}
-        maxSpeed={25}
-        minDelay={2000}
-        maxDelay={4000}
-        className="fixed inset-0 z-0"
-        starWidth={6}
-        starHeight={1}
-      />
-      <ShootingStars
-        starColor="#00FF9E"
-        trailColor="#00B8FF"
-        minSpeed={20}
-        maxSpeed={40}
-        minDelay={1500}
-        maxDelay={3500}
-        className="fixed inset-0 z-0"
-        starWidth={4}
         starHeight={1}
       />
       
@@ -116,27 +95,27 @@ export default function Home() {
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
         <Dock className="bg-white/10 border-white/20 backdrop-blur-md">
           <DockIcon className={`transition-colors ${activeSection === 'home' ? 'bg-blue-500/60 hover:bg-blue-400/70' : 'bg-white/20 hover:bg-white/30'}`}>
-            <a href="#home" className="flex items-center justify-center w-full h-full">
+            <a href="#home" aria-label="Home" title="Home" className="flex items-center justify-center w-full h-full">
               <HomeIcon className="w-6 h-6 text-white" />
             </a>
           </DockIcon>
           <DockIcon className={`transition-colors ${activeSection === 'work' ? 'bg-blue-500/60 hover:bg-blue-400/70' : 'bg-white/20 hover:bg-white/30'}`}>
-            <a href="#work" className="flex items-center justify-center w-full h-full">
+            <a href="#work" aria-label="Projects" title="Projects" className="flex items-center justify-center w-full h-full">
               <Briefcase className="w-6 h-6 text-white" />
             </a>
           </DockIcon>
           <DockIcon className={`transition-colors ${activeSection === 'about' ? 'bg-blue-500/60 hover:bg-blue-400/70' : 'bg-white/20 hover:bg-white/30'}`}>
-            <a href="#about" className="flex items-center justify-center w-full h-full">
+            <a href="#about" aria-label="About" title="About" className="flex items-center justify-center w-full h-full">
               <UserCircle className="w-6 h-6 text-white" />
             </a>
           </DockIcon>
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="/blog" className="flex items-center justify-center w-full h-full">
+            <Link href="/blog" aria-label="Blog" title="Blog" className="flex items-center justify-center w-full h-full">
               <BookOpen className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
           <DockIcon className={`transition-colors ${activeSection === 'contact' ? 'bg-blue-500/60 hover:bg-blue-400/70' : 'bg-white/20 hover:bg-white/30'}`}>
-            <a href="#contact" className="flex items-center justify-center w-full h-full">
+            <a href="#contact" aria-label="Contact" title="Contact" className="flex items-center justify-center w-full h-full">
               <MessageCircle className="w-6 h-6 text-white" />
             </a>
           </DockIcon>
@@ -147,23 +126,23 @@ export default function Home() {
       <CollapsibleLogo />
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative pt-[20vh]" itemScope itemType="https://schema.org/Person">
+      <section id="home" className="min-h-screen flex items-center justify-center relative pt-24 pb-32" itemScope itemType="https://schema.org/Person">
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
           <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse delay-1000"></div>
           <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse delay-2000"></div>
         </div>
         
-        <motion.div 
-          className="text-center z-10 max-w-4xl mx-auto px-6 -mt-[8vh]"
+        <motion.div
+          className="text-center z-10 max-w-4xl mx-auto px-6"
           variants={staggerContainer}
           initial="initial"
           animate="animate"
         >
 
-          <motion.h1 
+          <motion.h1
             variants={fadeInUp}
-            className="text-5xl md:text-7xl font-bold mb-12 leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight text-balance"
             itemProp="name"
           >
             Hi, I am a{' '}
@@ -171,18 +150,18 @@ export default function Home() {
             based in <span itemProp="address" itemScope itemType="https://schema.org/Place"><span itemProp="name">Singapore</span></span>
           </motion.h1>
           
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
-            className="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-2xl text-gray-300 mb-10 md:mb-16 max-w-3xl mx-auto leading-relaxed"
           >
             Who wouldn&apos;t want a career where overthinking is a job requirement?  
             <span className="gradient-text"> NQSS Master's Scholar</span> pursuing an MSc by Research at Nanyang Technological University, exploring quantum mysteries 
             and computational frontiers.
           </motion.p>
           
-                    <motion.div 
+                    <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-10 md:mb-16"
           >
             <a 
               href="#work"
@@ -229,12 +208,23 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Some of My Projects</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Some of My Projects</h2>
             <p className="text-gray-400 text-lg">Research and academic work in quantum physics and computational science</p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {[
+              {
+                title: "ITU and Quantum Coalition's FLIQ 2025",
+                subtitle: "Quantum Algorithms Challenge and Overall Education Track Winner",
+                description: "A guided, structured tutorial on understanding Quantum Error Correction with the Surface-17 code, that won me a trip to CERN.",
+                tech: ["Quantum Computing", "Error Correction", "Surface Code"],
+                icon: <Award className="w-8 h-8" />,
+                status: "Winner",
+                image: "/images/fliq-pic.png",
+                link: "https://github.com/TheSonOfKrypton/FLIQ-Hackathon-2025",
+                featured: true
+              },
               {
                 title: "Open Source Contributions",
                 subtitle: "GitHub Portfolio",
@@ -244,16 +234,6 @@ export default function Home() {
                 status: "Active",
                 image: "/images/github-pic.png",
                 link: "https://github.com/TheSonOfKrypton"
-              },
-              {
-                title: "ITU and Quantum Coalition's FLIQ 2025",
-                subtitle: "Quantum Algorithms Challenge and Overall Education Track Winner",
-                description: "A guided, structured tutorial on understanding Quantum Error Correction with the Surface-17 code, that won me a trip to CERN.",
-                tech: ["Quantum Computing", "Error Correction", "Surface Code"],
-                icon: <Award className="w-8 h-8" />,
-                status: "Winner",
-                image: "/images/fliq-pic.png",
-                link: "https://github.com/TheSonOfKrypton/FLIQ-Hackathon-2025"
               },
               {
                 title: "Benchmarking Quantum Gate Decomposition",
@@ -290,41 +270,59 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="tech-border rounded-lg p-8 bg-gray-900/50 hover:bg-gray-800/50 transition-all duration-300 group cursor-pointer"
+                  className={`tech-border rounded-lg p-8 bg-gray-900/50 hover:bg-gray-800/50 transition-all duration-300 group h-full ${
+                    project.link ? 'cursor-pointer hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)]' : ''
+                  } ${!project.link && project.featured ? 'md:col-span-2' : ''}`}
                 >
-                  {/* Project Image */}
-                  <div className="mb-6 h-48 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
-                      {project.icon}
-                    </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      project.status === 'Winner' ? 'bg-yellow-900/30 text-yellow-300' :
-                      project.status === 'Ongoing' ? 'bg-blue-900/30 text-blue-300' :
-                      'bg-green-900/30 text-green-300'
+                  <div className={project.featured ? 'md:grid md:grid-cols-2 md:gap-10 md:items-center h-full' : ''}>
+                    {/* Project Image */}
+                    <div className={`relative mb-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 overflow-hidden ${
+                      project.featured ? 'h-56 md:h-72 md:mb-0' : 'h-48'
                     }`}>
-                      {project.status}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <h4 className="text-blue-400 text-sm mb-3 font-medium">{project.subtitle}</h4>
-                  <p className="text-gray-400 mb-6 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="px-3 py-1 bg-gray-800 rounded-full text-sm font-mono text-gray-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        width={800}
+                        height={450}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {/* Tint evens out bright artwork against the dark theme */}
+                      <div className="absolute inset-0 bg-gray-950/20 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent pointer-events-none" />
+                    </div>
+
+                    <div>
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
+                          {project.icon}
+                        </div>
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          project.status === 'Winner' ? 'bg-yellow-900/30 text-yellow-300' :
+                          project.status === 'Ongoing' ? 'bg-blue-900/30 text-blue-300' :
+                          'bg-green-900/30 text-green-300'
+                        }`}>
+                          {project.status}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                        {project.title}
+                        {project.link && (
+                          <ExternalLink className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                        )}
+                      </h3>
+                      <h4 className="text-blue-400 text-sm mb-3 font-medium">{project.subtitle}</h4>
+                      <p className="text-gray-400 mb-6 leading-relaxed">{project.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-3 py-1 bg-gray-800 rounded-full text-sm font-mono text-gray-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               );
@@ -335,9 +333,9 @@ export default function Home() {
                   <a
                     key={index}
                     href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-                    className="block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block ${project.featured ? 'md:col-span-2' : ''}`}
                   >
                     {ProjectCard}
                   </a>
@@ -358,8 +356,8 @@ export default function Home() {
               href="/blog"
               className="inline-flex items-center gap-2 px-6 py-3 border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white rounded-lg transition-colors"
             >
-              View All Works
-              <ExternalLink className="w-4 h-4" />
+              Read My Writing
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>
@@ -374,7 +372,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
               More About <span className="gradient-text">Dev Verma</span>
             </h2>
             
@@ -417,7 +415,7 @@ export default function Home() {
                 <p>
                   Beyond physics, I take inspiration from <strong>Leonardo da Vinci</strong>, striving to explore everything that catches my eye. You might find me 
                   unleashing sacrifices on the chessboard, losing myself in <strong>stoic philosophy</strong>, or storyboarding ideas for a film I&apos;ll <em>maybe</em> direct one day. 
-                  I also occasionally write longer, structured pieces about my thoughts and projects on <a href="/blog" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">my blog</a>.
+                  I also occasionally write longer, structured pieces about my thoughts and projects on <Link href="/blog" className="text-blue-400 hover:text-blue-300 underline">my blog</Link>.
                 </p>
                 <p>
                   Richard Feynman once said, <em>&quot;I was born not knowing, and have had only a little time to change that here and there.&quot;</em> That pretty 
@@ -441,7 +439,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center"
+                  className={`text-center ${index === 4 ? 'col-span-2 md:col-span-1' : ''}`}
                 >
                   <div className="text-3xl font-bold gradient-text">{stat.value}</div>
                   <div className="text-gray-400 text-sm">{stat.label}</div>
@@ -461,7 +459,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">Have something to share?</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">Have something to share?</h2>
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
               Whether it&apos;s about quantum physics, research collaborations, or just a fascinating 
               scientific discussion, I&apos;d love to hear from you.
@@ -499,11 +497,9 @@ export default function Home() {
               <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Or subscribe to my Substack</p>
               <form
                 className="flex flex-col sm:flex-row gap-3"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
-                  window.open(`https://dverma.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
-                }}
+                action="https://dverma.substack.com/subscribe"
+                method="get"
+                target="_blank"
               >
                 <input
                   type="email"
@@ -525,11 +521,12 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-gray-800 py-8 bg-black/50 backdrop-blur-sm">
+      <footer className="relative z-10 border-t border-gray-800 pt-8 pb-32 bg-black/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 text-center text-gray-400">
           <p>&copy; 2026 Dev Verma. NQSS Scholar at NTU Singapore.</p>
         </div>
       </footer>
     </main>
+    </MotionConfig>
   );
 }

@@ -55,10 +55,29 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
   className,
 }) => {
   const [star, setStar] = useState<ShootingStar | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setStar(null);
+      return;
+    }
+
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     const createStar = () => {
+      // Pause spawning while the tab is hidden; visibilitychange resumes it
+      if (document.hidden) return;
+
       const { x, y, angle } = getRandomStartPoint();
       const newStar: ShootingStar = {
         id: Date.now(),
@@ -72,13 +91,24 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
       setStar(newStar);
 
       const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
-      setTimeout(createStar, randomDelay);
+      timeoutId = setTimeout(createStar, randomDelay);
     };
 
+    const onVisibilityChange = () => {
+      if (!document.hidden) {
+        clearTimeout(timeoutId);
+        createStar();
+      }
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
     createStar();
 
-    return () => {};
-  }, [minSpeed, maxSpeed, minDelay, maxDelay]);
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, [minSpeed, maxSpeed, minDelay, maxDelay, reducedMotion]);
 
   useEffect(() => {
     const moveStar = () => {
@@ -115,6 +145,8 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
     const animationFrame = requestAnimationFrame(moveStar);
     return () => cancelAnimationFrame(animationFrame);
   }, [star]);
+
+  if (reducedMotion) return null;
 
   return (
     <svg

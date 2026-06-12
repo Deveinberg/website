@@ -1,48 +1,16 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowRight, Tag, BookOpen, Home as HomeIcon, Briefcase, UserCircle, MessageCircle } from 'lucide-react';
+import { motion, MotionConfig } from 'framer-motion';
+import { BookOpen, Home as HomeIcon, Briefcase, UserCircle, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Dock, DockIcon } from '@/components/ui/dock';
 import { ShootingStars } from '@/components/ui/shooting-stars';
 import { StarsBackground } from '@/components/ui/stars-background';
 import { CollapsibleLogo } from '@/components/ui/collapsible-logo';
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "Quantum Gate Decomposition: My Final Year Project",
-    excerpt: "Diving deep into benchmarking quantum gate decomposition frameworks under Professor Mile Gu's supervision at NTU.",
-    date: "2025-01-15",
-    readTime: "12 min read",
-    tags: ["Quantum Gates", "Research", "NTU", "Benchmarking"],
-    slug: "quantum-gate-decomposition-fyp",
-    image: "/images/fyp-pic.png"
-  },
-  {
-    id: 2,
-    title: "Real-Time Vibration Analysis: URECA Insights",
-    excerpt: "Exploring real-time measurement and analysis of vibrations during my URECA 2023-24 project with Professor Bent Weber.",
-    date: "2024-12-10",
-    readTime: "10 min read",
-    tags: ["Signal Processing", "URECA", "Vibrations", "Real-time"],
-    slug: "real-time-vibration-analysis-ureca",
-    image: "/images/ulv-pic.png"
-  },
-  {
-    id: 3,
-    title: "Understanding Polydispersity in Glassy Systems",
-    excerpt: "My research journey investigating the effects of polydispersity in glassy systems under Professor Massimo Pica Ciamarra.",
-    date: "2024-11-25",
-    readTime: "15 min read",
-    tags: ["Statistical Physics", "Glass Physics", "Simulation", "Research"],
-    slug: "polydispersity-glassy-systems",
-    image: "/images/polydisp-pic.png"
-  }
-];
-
 export default function BlogPage() {
   return (
+    <MotionConfig reducedMotion="user">
     <main className="min-h-screen bg-black text-white relative">
       {/* Stars Background */}
       <StarsBackground />
@@ -64,27 +32,27 @@ export default function BlogPage() {
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
         <Dock className="bg-white/10 border-white/20 backdrop-blur-md">
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="/" className="flex items-center justify-center w-full h-full">
+            <Link href="/" aria-label="Home" title="Home" className="flex items-center justify-center w-full h-full">
               <HomeIcon className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="/#work" className="flex items-center justify-center w-full h-full">
+            <Link href="/#work" aria-label="Projects" title="Projects" className="flex items-center justify-center w-full h-full">
               <Briefcase className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="/#about" className="flex items-center justify-center w-full h-full">
+            <Link href="/#about" aria-label="About" title="About" className="flex items-center justify-center w-full h-full">
               <UserCircle className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
           <DockIcon className="bg-blue-500/60 hover:bg-blue-400/70 transition-colors">
-            <Link href="/blog" className="flex items-center justify-center w-full h-full">
+            <Link href="/blog" aria-label="Blog" title="Blog" className="flex items-center justify-center w-full h-full">
               <BookOpen className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="/#contact" className="flex items-center justify-center w-full h-full">
+            <Link href="/#contact" aria-label="Contact" title="Contact" className="flex items-center justify-center w-full h-full">
               <MessageCircle className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
@@ -102,7 +70,7 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               <span className="gradient-text">Research</span> & Reflections
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -140,11 +108,9 @@ export default function BlogPage() {
               <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Subscribe</p>
               <form
                 className="flex flex-col sm:flex-row gap-3"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
-                  window.open(`https://dverma.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
-                }}
+                action="https://dverma.substack.com/subscribe"
+                method="get"
+                target="_blank"
               >
                 <input
                   type="email"
@@ -166,11 +132,12 @@ export default function BlogPage() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-gray-800 py-8 bg-black/50 backdrop-blur-sm">
+      <footer className="relative z-10 border-t border-gray-800 pt-8 pb-32 bg-black/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 text-center text-gray-400">
           <p>&copy; 2026 Dev Verma. NQSS Scholar at NTU Singapore.</p>
         </div>
       </footer>
     </main>
+    </MotionConfig>
   );
-} 
+}
