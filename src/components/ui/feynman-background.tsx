@@ -84,32 +84,38 @@ export const FeynmanBackground: React.FC<FeynmanBackgroundProps> = ({ className 
       {PLACEMENTS.map((p, i) => {
         const d = DIAGRAMS[p.diagram];
         return (
-          <svg
+          // Wrapper caps brightness on small screens (opacity multiplies
+          // with the glow animation on the svg itself)
+          <div
             key={i}
-            viewBox="0 0 120 80"
-            width={120 * p.scale}
-            height={80 * p.scale}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            className={cn("feynman-diagram", p.color, p.hideOnMobile && "hidden md:block")}
-            style={
-              {
-                ...p.style,
-                transform: `rotate(${p.rotate}deg)`,
-                "--glow-duration": `${p.duration}s`,
-                "--glow-delay": `${p.delay}s`,
-              } as React.CSSProperties
-            }
+            className={cn("absolute opacity-60 md:opacity-100", p.hideOnMobile && "hidden md:block")}
+            style={p.style}
           >
-            {d.paths.map((path, j) => (
-              <path key={j} d={path} />
-            ))}
-            {d.vertices.map(([cx, cy], j) => (
-              <circle key={j} cx={cx} cy={cy} r="2.2" fill="currentColor" stroke="none" />
-            ))}
-          </svg>
+            <svg
+              viewBox="0 0 120 80"
+              width={120 * p.scale}
+              height={80 * p.scale}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              className={cn("feynman-diagram", p.color)}
+              style={
+                {
+                  transform: `rotate(${p.rotate}deg)`,
+                  "--glow-duration": `${p.duration}s`,
+                  "--glow-delay": `${p.delay}s`,
+                } as React.CSSProperties
+              }
+            >
+              {d.paths.map((path, j) => (
+                <path key={j} d={path} />
+              ))}
+              {d.vertices.map(([cx, cy], j) => (
+                <circle key={j} cx={cx} cy={cy} r="2.2" fill="currentColor" stroke="none" />
+              ))}
+            </svg>
+          </div>
         );
       })}
     </div>

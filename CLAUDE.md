@@ -75,7 +75,9 @@ Voice principles: keep the self-deprecating humor (it's the brand), introduce De
 - [x] Untouched as planned: About bio paragraphs, contact section, footer, SEO metadata.
 
 ### Post-phase revisions (per Dev, 2026-06-12)
-- [x] Removed the physics-cliché decorations: atom orbit hero element and all shooting-star layers (component deleted, CSS removed). The static twinkling star field + parallax stays. Don't reintroduce atom/shooting-star/Feynman-diagram-style imagery.
+- [x] Atom orbit hero element and all shooting-star layers removed (component deleted, CSS removed). The static twinkling star field + parallax stays.
+- [x] **Replaced with Feynman diagrams**: `FeynmanBackground` renders 5 faint line-art QED diagrams (t-channel, s-channel, vacuum polarization, bremsstrahlung ×2) fixed in the background on both pages; each slowly pulses up to a colored glow on a staggered 11–16s cycle. Capped at 60% brightness on mobile so they never fight the text. This is the approved decoration style: atom orbits and shooting stars are out, Feynman diagrams are in.
+- [x] **Projects section removed entirely** (per Dev): the About timeline is the project showcase now, and the hero "View My Projects" CTA links straight to GitHub. Dock is 4 icons (Home/About/Blog/Contact); scroll-spy updated. Project images in `public/images/` are now unused except `about-pic.jpeg` + favicon + og-card.
 - [x] **No em dashes in site copy** (standing rule). All nine instances reworded with commas, colons, or periods, including the About bio. En dashes in year ranges (2022–23) are fine.
 
 ### Out of scope (for later, per Dev)
