@@ -90,6 +90,30 @@ body {
     font-size: 0.875rem;
   }
   
+  /* Background Feynman diagrams: faint by default, each one slowly
+     pulses up to a glow once per cycle, staggered via custom props */
+  .feynman-diagram {
+    position: absolute;
+    opacity: 0.09;
+    animation: feynman-glow var(--glow-duration, 12s) ease-in-out infinite;
+    animation-delay: var(--glow-delay, 0s);
+  }
+
+  @keyframes feynman-glow {
+    0%, 55%, 100% {
+      opacity: 0.09;
+      filter: none;
+    }
+    70% {
+      opacity: 0.5;
+      filter: drop-shadow(0 0 8px currentColor);
+    }
+    85% {
+      opacity: 0.09;
+      filter: none;
+    }
+  }
+
   /* Inline link underline that draws in on hover */
   .link-underline {
     background-image: linear-gradient(currentColor, currentColor);

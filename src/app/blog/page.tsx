@@ -1,10 +1,11 @@
 'use client';
 
 import { motion, MotionConfig } from 'framer-motion';
-import { BookOpen, Home as HomeIcon, Briefcase, UserCircle, MessageCircle } from 'lucide-react';
+import { BookOpen, Home as HomeIcon, UserCircle, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Dock, DockIcon } from '@/components/ui/dock';
 import { StarsBackground } from '@/components/ui/stars-background';
+import { FeynmanBackground } from '@/components/ui/feynman-background';
 import { CollapsibleLogo } from '@/components/ui/collapsible-logo';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
 
@@ -17,18 +18,16 @@ export default function BlogPage() {
 
       {/* Stars Background */}
       <StarsBackground />
-      
+
+      {/* Occasionally glowing Feynman diagrams */}
+      <FeynmanBackground />
+
       {/* Dock Navigation */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
         <Dock className="bg-white/10 border-white/20 backdrop-blur-md">
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
             <Link href="/" aria-label="Home" title="Home" className="flex items-center justify-center w-full h-full">
               <HomeIcon className="w-6 h-6 text-white" />
-            </Link>
-          </DockIcon>
-          <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">
-            <Link href="/#work" aria-label="Projects" title="Projects" className="flex items-center justify-center w-full h-full">
-              <Briefcase className="w-6 h-6 text-white" />
             </Link>
           </DockIcon>
           <DockIcon className="bg-white/20 hover:bg-white/30 transition-colors">

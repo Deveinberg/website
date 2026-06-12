@@ -3,25 +3,19 @@
 import { motion, MotionConfig } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import {
-  Atom,
   Github,
   Linkedin,
   Mail,
-  ArrowRight,
-  ExternalLink,
   ChevronDown,
-  Zap,
-  Award,
   BookOpen,
-  Microscope,
   Home as HomeIcon,
-  Briefcase,
   UserCircle,
   MessageCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import { Dock, DockIcon } from '@/components/ui/dock';
 import { StarsBackground } from '@/components/ui/stars-background';
+import { FeynmanBackground } from '@/components/ui/feynman-background';
 import { CollapsibleLogo } from '@/components/ui/collapsible-logo';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
 
@@ -44,7 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'work', 'about', 'contact'];
+      const sections = ['home', 'about', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -80,18 +74,16 @@ export default function Home() {
 
       {/* Stars Background */}
       <StarsBackground />
-      
+
+      {/* Occasionally glowing Feynman diagrams */}
+      <FeynmanBackground />
+
       {/* Dock Navigation */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
         <Dock className="bg-white/10 border-white/20 backdrop-blur-md">
           <DockIcon className={`transition-colors ${activeSection === 'home' ? 'bg-blue-500/60 hover:bg-blue-400/70' : 'bg-white/20 hover:bg-white/30'}`}>
             <a href="#home" aria-label="Home" title="Home" className="flex items-center justify-center w-full h-full">
               <HomeIcon className="w-6 h-6 text-white" />
-            </a>
-          </DockIcon>
-          <DockIcon className={`transition-colors ${activeSection === 'work' ? 'bg-blue-500/60 hover:bg-blue-400/70' : 'bg-white/20 hover:bg-white/30'}`}>
-            <a href="#work" aria-label="Projects" title="Projects" className="flex items-center justify-center w-full h-full">
-              <Briefcase className="w-6 h-6 text-white" />
             </a>
           </DockIcon>
           <DockIcon className={`transition-colors ${activeSection === 'about' ? 'bg-blue-500/60 hover:bg-blue-400/70' : 'bg-white/20 hover:bg-white/30'}`}>
@@ -148,7 +140,9 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-10 md:mb-16"
           >
             <a
-              href="#work"
+              href="https://github.com/TheSonOfKrypton"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-all hover:scale-[1.03] active:scale-[0.97] glow-effect"
             >
               View My Projects
@@ -166,8 +160,8 @@ export default function Home() {
             variants={fadeInUp}
             className="flex justify-center"
           >
-            <a 
-              href="#work"
+            <a
+              href="#about"
               className="flex flex-col items-center gap-2 text-gray-400 hover:text-gray-300 transition-colors cursor-pointer group"
             >
               <span className="text-sm font-medium">See what the overthinking produced</span>
@@ -182,171 +176,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-
-      {/* Featured Work Section */}
-      <section id="work" className="section-padding relative">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Some of My Projects</h2>
-            <p className="text-gray-400 text-lg">Research and academic work in quantum physics and computational science</p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {[
-              {
-                title: "ITU and Quantum Coalition's FLIQ 2025",
-                subtitle: "Quantum Algorithms Challenge and Overall Education Track Winner",
-                description: "A guided, hands-on tutorial on quantum error correction with the Surface-17 code. It won the Education Track, and me a trip to CERN.",
-                tech: ["Quantum Computing", "Error Correction", "Surface Code"],
-                icon: <Award className="w-8 h-8" />,
-                status: "Winner",
-                image: "/images/fliq-pic.png",
-                link: "https://github.com/TheSonOfKrypton/FLIQ-Hackathon-2025",
-                featured: true
-              },
-              {
-                title: "Open Source Contributions",
-                subtitle: "GitHub Portfolio",
-                description: "The code behind the research: quantum computing experiments, physics simulations, and whatever else I've been building in the open.",
-                tech: ["Python", "Quantum Computing", "Open Source"],
-                icon: <Github className="w-8 h-8" />,
-                status: "Active",
-                image: "/images/github-pic.png",
-                link: "https://github.com/TheSonOfKrypton"
-              },
-              {
-                title: "Benchmarking Quantum Gate Decomposition",
-                subtitle: "Final Year Project (2025)",
-                description: "How well do different frameworks break quantum gates into the ones hardware can actually run? My Final Year Project, under Professor Mile Gu, set out to measure exactly that.",
-                tech: ["Quantum Gates", "Benchmarking", "Research"],
-                icon: <Atom className="w-8 h-8" />,
-                status: "Completed",
-                image: "/images/fyp-pic.png"
-              },
-              {
-                title: "Real-Time Vibration Analysis",
-                subtitle: "URECA 2023-24 Project",
-                description: "Catching tremors as they happen: a pipeline to measure and analyse lab vibrations in real time, built under Professor Bent Weber.",
-                tech: ["Signal Processing", "Real-time Analysis", "Sensors"],
-                icon: <Zap className="w-8 h-8" />,
-                status: "Completed",
-                image: "/images/ulv-pic.png"
-              },
-              {
-                title: "Polydispersity in Glassy Systems",
-                subtitle: "URECA 2022-23 Project",
-                description: "What changes in a glass when its particles come in every size? Simulating glassy systems to find out, under Professor Massimo Pica Ciamarra.",
-                tech: ["Statistical Physics", "Simulation", "Materials Science"],
-                icon: <Microscope className="w-8 h-8" />,
-                status: "Completed",
-                image: "/images/polydisp-pic.png"
-              }
-            ].map((project, index) => {
-              const ProjectCard = (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`tech-border rounded-lg p-8 bg-gray-900/50 hover:bg-gray-800/50 transition-all duration-300 group h-full ${
-                    project.link ? 'cursor-pointer hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)]' : ''
-                  } ${!project.link && project.featured ? 'md:col-span-2' : ''}`}
-                >
-                  <div className={project.featured ? 'md:grid md:grid-cols-2 md:gap-10 md:items-center h-full' : ''}>
-                    {/* Project Image */}
-                    <div className={`relative mb-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 overflow-hidden ${
-                      project.featured ? 'h-56 md:h-72 md:mb-0' : 'h-48'
-                    }`}>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        width={800}
-                        height={450}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      {/* Tint evens out bright artwork against the dark theme */}
-                      <div className="absolute inset-0 bg-gray-950/20 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent pointer-events-none" />
-                    </div>
-
-                    <div>
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
-                          {project.icon}
-                        </div>
-                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          project.status === 'Winner' ? 'bg-yellow-900/30 text-yellow-300' :
-                          project.status === 'Ongoing' ? 'bg-blue-900/30 text-blue-300' :
-                          'bg-green-900/30 text-green-300'
-                        }`}>
-                          {project.status}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                        {project.title}
-                        {project.link && (
-                          <ExternalLink className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
-                        )}
-                      </h3>
-                      <h4 className="text-blue-400 text-sm mb-3 font-medium">{project.subtitle}</h4>
-                      <p className="text-gray-400 mb-6 leading-relaxed">{project.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-3 py-1 bg-gray-800 rounded-full text-sm font-mono text-gray-300"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-
-              // If project has a link, wrap it in an anchor tag
-              if (project.link) {
-                return (
-                  <a
-                    key={index}
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`block ${project.featured ? 'md:col-span-2' : ''}`}
-                  >
-                    {ProjectCard}
-                  </a>
-                );
-              }
-
-              return ProjectCard;
-            })}
-          </div>
-          
-                    <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white rounded-lg transition-colors"
-            >
-              Read My Writing
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section id="about" className="section-padding relative">
         <div className="max-w-6xl mx-auto">
