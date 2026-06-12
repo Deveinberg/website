@@ -4,6 +4,7 @@ import { motion, MotionConfig } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import {
   Github,
+  GraduationCap,
   Linkedin,
   Mail,
   ChevronDown,
@@ -353,6 +354,15 @@ export default function Home() {
               >
                 <Github className="w-5 h-5" />
                 GitHub
+              </a>
+              <a
+                href="https://scholar.google.com/citations?user=4Hz1kfsAAAAJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 px-6 py-3 border border-gray-600 hover:border-gray-400 rounded-lg transition-colors"
+              >
+                <GraduationCap className="w-5 h-5" />
+                Google Scholar
               </a>
             </div>
 

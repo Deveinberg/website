@@ -4,8 +4,13 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 // Classic QED diagrams as line art: straight lines for fermions, wavy
-// paths for photons, dots for vertices. viewBox is 120x80 for all.
-const DIAGRAMS: { paths: string[]; vertices: [number, number][] }[] = [
+// paths for photons, dots for vertices, arrowheads ([x, y, angle]) on
+// the fermion lines. viewBox is 120x80 for all.
+const DIAGRAMS: {
+  paths: string[];
+  vertices: [number, number][];
+  arrows: [number, number, number][];
+}[] = [
   {
     // t-channel scattering: two fermions exchange a photon
     paths: [
@@ -16,6 +21,12 @@ const DIAGRAMS: { paths: string[]; vertices: [number, number][] }[] = [
     vertices: [
       [35, 40],
       [85, 40],
+    ],
+    arrows: [
+      [22.5, 22.5, 54.5],
+      [22.5, 57.5, 125.5],
+      [97.5, 22.5, 125.5],
+      [97.5, 57.5, 54.5],
     ],
   },
   {
@@ -29,6 +40,12 @@ const DIAGRAMS: { paths: string[]; vertices: [number, number][] }[] = [
       [30, 40],
       [90, 40],
     ],
+    arrows: [
+      [17.5, 25, 50.2],
+      [17.5, 55, 129.8],
+      [102.5, 25, 129.8],
+      [102.5, 55, 50.2],
+    ],
   },
   {
     // vacuum polarization: photon, fermion loop, photon
@@ -41,6 +58,10 @@ const DIAGRAMS: { paths: string[]; vertices: [number, number][] }[] = [
       [35, 40],
       [85, 40],
     ],
+    arrows: [
+      [60, 15, 0],
+      [60, 65, 180],
+    ],
   },
   {
     // bremsstrahlung: fermion radiates a photon
@@ -49,6 +70,10 @@ const DIAGRAMS: { paths: string[]; vertices: [number, number][] }[] = [
       "M60 45 Q52 38 60 31 Q68 24 60 17 Q52 10 60 3",
     ],
     vertices: [[60, 45]],
+    arrows: [
+      [35, 60, -31],
+      [85, 60, 31],
+    ],
   },
 ];
 
@@ -113,6 +138,15 @@ export const FeynmanBackground: React.FC<FeynmanBackgroundProps> = ({ className 
               ))}
               {d.vertices.map(([cx, cy], j) => (
                 <circle key={j} cx={cx} cy={cy} r="2.2" fill="currentColor" stroke="none" />
+              ))}
+              {d.arrows.map(([x, y, angle], j) => (
+                <path
+                  key={j}
+                  d="M-3.5 -2.5 L3.5 0 L-3.5 2.5 Z"
+                  fill="currentColor"
+                  stroke="none"
+                  transform={`translate(${x} ${y}) rotate(${angle})`}
+                />
               ))}
             </svg>
           </div>

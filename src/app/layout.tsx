@@ -150,7 +150,8 @@ export default function RootLayout({
     ],
     "sameAs": [
       "https://github.com/TheSonOfKrypton",
-      "https://linkedin.com/in/7devverma"
+      "https://linkedin.com/in/7devverma",
+      "https://scholar.google.com/citations?user=4Hz1kfsAAAAJ"
     ],
     "email": "dev@devverma.com",
     "nationality": "NA"
