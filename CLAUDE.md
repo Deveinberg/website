@@ -74,8 +74,12 @@ Voice principles: keep the self-deprecating humor (it's the brand), introduce De
 - [x] Blog page: sub no longer claims "breakthroughs"; Substack card is "It all lives on Substack".
 - [x] Untouched as planned: About bio paragraphs, contact section, footer, SEO metadata.
 
+### Post-phase revisions (per Dev, 2026-06-12)
+- [x] Removed the physics-cliché decorations: atom orbit hero element and all shooting-star layers (component deleted, CSS removed). The static twinkling star field + parallax stays. Don't reintroduce atom/shooting-star/Feynman-diagram-style imagery.
+- [x] **No em dashes in site copy** (standing rule). All nine instances reworded with commas, colons, or periods, including the About bio. En dashes in year ranges (2022–23) are fine.
+
 ### Out of scope (for later, per Dev)
-- New content/pages (CV page, publications list) — worth discussing after UI pass.
+- New content/pages (CV page, publications list). Worth discussing after UI pass.
 
 ## Working notes
 - Static export (`output: 'export'`) → no server features; keep everything client-side/static.

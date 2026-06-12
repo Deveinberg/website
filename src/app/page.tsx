@@ -21,7 +21,6 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Dock, DockIcon } from '@/components/ui/dock';
-import { ShootingStars } from '@/components/ui/shooting-stars';
 import { StarsBackground } from '@/components/ui/stars-background';
 import { CollapsibleLogo } from '@/components/ui/collapsible-logo';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
@@ -82,19 +81,6 @@ export default function Home() {
       {/* Stars Background */}
       <StarsBackground />
       
-      {/* Single shooting star layer — calmer background, less battery drain */}
-      <ShootingStars
-        starColor="#9E00FF"
-        trailColor="#2EB9DF"
-        minSpeed={15}
-        maxSpeed={35}
-        minDelay={1500}
-        maxDelay={4500}
-        className="fixed inset-0 z-0"
-        starWidth={8}
-        starHeight={1}
-      />
-      
       {/* Dock Navigation */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
         <Dock className="bg-white/10 border-white/20 backdrop-blur-md">
@@ -131,21 +117,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative pt-24 pb-32" itemScope itemType="https://schema.org/Person">
-        {/* Atomic orbit decoration behind the headline */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-          <div className="atom-orbits">
-            <div className="atom-orbit atom-orbit-1">
-              <div className="atom-ring"><span className="electron text-blue-400 bg-blue-400" /></div>
-            </div>
-            <div className="atom-orbit atom-orbit-2">
-              <div className="atom-ring"><span className="electron text-purple-400 bg-purple-400" /></div>
-            </div>
-            <div className="atom-orbit atom-orbit-3">
-              <div className="atom-ring"><span className="electron text-cyan-400 bg-cyan-400" /></div>
-            </div>
-          </div>
-        </div>
-        
         <motion.div
           className="text-center z-10 max-w-4xl mx-auto px-6"
           variants={staggerContainer}
@@ -158,7 +129,7 @@ export default function Home() {
             className="text-4xl sm:text-5xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight text-balance"
             itemProp="name"
           >
-            Hi, I&apos;m <span className="gradient-text">Dev</span> — a{' '}
+            Hi, I&apos;m <span className="gradient-text">Dev</span>, a{' '}
             <span itemProp="jobTitle">young physicist</span>{' '}
             based in <span itemProp="address" itemScope itemType="https://schema.org/Place"><span itemProp="name">Singapore</span></span>
           </motion.h1>
@@ -230,7 +201,7 @@ export default function Home() {
               {
                 title: "ITU and Quantum Coalition's FLIQ 2025",
                 subtitle: "Quantum Algorithms Challenge and Overall Education Track Winner",
-                description: "A guided, hands-on tutorial on quantum error correction with the Surface-17 code — it won the Education Track, and me a trip to CERN.",
+                description: "A guided, hands-on tutorial on quantum error correction with the Surface-17 code. It won the Education Track, and me a trip to CERN.",
                 tech: ["Quantum Computing", "Error Correction", "Surface Code"],
                 icon: <Award className="w-8 h-8" />,
                 status: "Winner",
@@ -241,7 +212,7 @@ export default function Home() {
               {
                 title: "Open Source Contributions",
                 subtitle: "GitHub Portfolio",
-                description: "The code behind the research — quantum computing experiments, physics simulations, and whatever else I've been building in the open.",
+                description: "The code behind the research: quantum computing experiments, physics simulations, and whatever else I've been building in the open.",
                 tech: ["Python", "Quantum Computing", "Open Source"],
                 icon: <Github className="w-8 h-8" />,
                 status: "Active",
@@ -260,7 +231,7 @@ export default function Home() {
               {
                 title: "Real-Time Vibration Analysis",
                 subtitle: "URECA 2023-24 Project",
-                description: "Catching tremors as they happen — building a pipeline to measure and analyse lab vibrations in real time, under Professor Bent Weber.",
+                description: "Catching tremors as they happen: a pipeline to measure and analyse lab vibrations in real time, built under Professor Bent Weber.",
                 tech: ["Signal Processing", "Real-time Analysis", "Sensors"],
                 icon: <Zap className="w-8 h-8" />,
                 status: "Completed",
@@ -416,13 +387,13 @@ export default function Home() {
               {/* About Text */}
               <div className="text-lg text-gray-300 space-y-6 text-center md:text-left md:order-1">
                 <p>
-                  Hi, I&apos;m Dev—a chill philosopher, aspiring polymath, and a physicist-in-the-making. When I&apos;m not pondering the mysteries of the 
+                  Hi, I&apos;m Dev: a chill philosopher, aspiring polymath, and a physicist-in-the-making. When I&apos;m not pondering the mysteries of the 
                   universe, I&apos;m probably getting absolutely demolished in Catan by my best friend (despite my <em>undeniable</em> strategic genius).
                 </p>
                 <p>
                   I&apos;m currently pursuing my <strong>MSc by Research in Physics</strong> at <strong>Nanyang Technological University</strong> as Singapore&apos;s <strong>NQSS (National Quantum Scholarship Scheme) Scholar</strong>, with a particular 
                   fascination for <strong>quantum computing</strong>, <strong>gate decomposition</strong>, and <strong>whatever lies beyond the Standard Model</strong> (dark matter, I&apos;m looking at 
-                  you). My ultimate goal? To do <strong>meaningful work in physics</strong>—whether that means helping build the next big thing in quantum tech or 
+                  you). My ultimate goal? To do <strong>meaningful work in physics</strong>, whether that means helping build the next big thing in quantum tech or
                   unlocking some fundamental truths about the universe.
                 </p>
                 <p>
@@ -432,7 +403,7 @@ export default function Home() {
                 </p>
                 <p>
                   Richard Feynman once said, <em>&quot;I was born not knowing, and have had only a little time to change that here and there.&quot;</em> That pretty 
-                  much sums up my approach to life—always learning, always exploring, and maybe, just maybe, changing my corner of the world for 
+                  much sums up my approach to life: always learning, always exploring, and maybe, just maybe, changing my corner of the world for
                   the better while I&apos;m at it.
                 </p>
               </div>
@@ -463,7 +434,7 @@ export default function Home() {
                   {
                     year: "2025",
                     title: "FLIQ 2025 Winner",
-                    detail: "Quantum Algorithms Challenge and Overall Education Track — won a trip to CERN."
+                    detail: "Quantum Algorithms Challenge and Overall Education Track. Won a trip to CERN."
                   },
                   {
                     year: "2025–now",

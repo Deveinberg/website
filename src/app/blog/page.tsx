@@ -4,7 +4,6 @@ import { motion, MotionConfig } from 'framer-motion';
 import { BookOpen, Home as HomeIcon, Briefcase, UserCircle, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Dock, DockIcon } from '@/components/ui/dock';
-import { ShootingStars } from '@/components/ui/shooting-stars';
 import { StarsBackground } from '@/components/ui/stars-background';
 import { CollapsibleLogo } from '@/components/ui/collapsible-logo';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
@@ -18,19 +17,6 @@ export default function BlogPage() {
 
       {/* Stars Background */}
       <StarsBackground />
-      
-      {/* Shooting Stars Background */}
-      <ShootingStars 
-        starColor="#9E00FF"
-        trailColor="#2EB9DF"
-        minSpeed={15}
-        maxSpeed={35}
-        minDelay={1500}
-        maxDelay={4000}
-        className="fixed inset-0 z-0"
-        starWidth={6}
-        starHeight={1}
-      />
       
       {/* Dock Navigation */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
@@ -78,7 +64,7 @@ export default function BlogPage() {
               <span className="gradient-text">Research</span> & Reflections
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Longer-form writing from my corner of NTU Singapore — quantum computing,
+              Longer-form writing from my corner of NTU Singapore: quantum computing,
               research life, and the occasional philosophical detour.
             </p>
           </motion.div>

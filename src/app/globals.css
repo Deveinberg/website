@@ -90,51 +90,6 @@ body {
     font-size: 0.875rem;
   }
   
-  /* Hero atom decoration: squashed circles read as tilted electron orbits */
-  .atom-orbits {
-    position: relative;
-    width: min(40rem, 92vw);
-    aspect-ratio: 1;
-    opacity: 0.75;
-  }
-
-  .atom-orbit {
-    position: absolute;
-    inset: 0;
-  }
-
-  .atom-orbit-1 { transform: rotate(0deg) scaleY(0.32); }
-  .atom-orbit-2 { transform: rotate(60deg) scaleY(0.32); }
-  .atom-orbit-3 { transform: rotate(-60deg) scaleY(0.32); }
-
-  .atom-ring {
-    position: absolute;
-    inset: 0;
-    border: 1px solid rgba(148, 163, 184, 0.25);
-    border-radius: 9999px;
-    animation: orbit-spin linear infinite;
-  }
-
-  .atom-orbit-1 .atom-ring { animation-duration: 26s; }
-  .atom-orbit-2 .atom-ring { animation-duration: 20s; animation-direction: reverse; }
-  .atom-orbit-3 .atom-ring { animation-duration: 32s; }
-
-  .electron {
-    position: absolute;
-    top: -4px;
-    left: calc(50% - 4px);
-    width: 8px;
-    height: 8px;
-    border-radius: 9999px;
-    box-shadow: 0 0 14px 2px currentColor;
-    /* Counter the parent orbit's scaleY(0.32) so the dot stays round */
-    transform: scaleY(3.125);
-  }
-
-  @keyframes orbit-spin {
-    to { transform: rotate(360deg); }
-  }
-
   /* Inline link underline that draws in on hover */
   .link-underline {
     background-image: linear-gradient(currentColor, currentColor);
