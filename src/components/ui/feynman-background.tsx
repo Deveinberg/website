@@ -89,11 +89,11 @@ interface Placement {
 }
 
 const PLACEMENTS: Placement[] = [
-  { diagram: 0, style: { left: "5%", top: "14%" }, color: "text-blue-400", duration: 11, delay: 0, scale: 1.15, rotate: -10 },
-  { diagram: 1, style: { right: "6%", top: "20%" }, color: "text-purple-400", duration: 14, delay: 5, scale: 0.95, rotate: 8, hideOnMobile: true },
-  { diagram: 2, style: { left: "9%", bottom: "24%" }, color: "text-cyan-400", duration: 16, delay: 9, scale: 1.0, rotate: 6, hideOnMobile: true },
-  { diagram: 3, style: { right: "10%", bottom: "16%" }, color: "text-blue-400", duration: 12, delay: 3, scale: 1.2, rotate: -6 },
-  { diagram: 3, style: { left: "44%", top: "5%" }, color: "text-purple-400", duration: 15, delay: 7, scale: 0.7, rotate: 14, hideOnMobile: true },
+  { diagram: 0, style: { left: "5%", top: "14%" }, color: "text-blue-700", duration: 11, delay: 0, scale: 1.15, rotate: -10 },
+  { diagram: 1, style: { right: "6%", top: "20%" }, color: "text-purple-700", duration: 14, delay: 5, scale: 0.95, rotate: 8, hideOnMobile: true },
+  { diagram: 2, style: { left: "9%", bottom: "24%" }, color: "text-cyan-700", duration: 16, delay: 9, scale: 1.0, rotate: 6, hideOnMobile: true },
+  { diagram: 3, style: { right: "10%", bottom: "16%" }, color: "text-blue-700", duration: 12, delay: 3, scale: 1.2, rotate: -6 },
+  { diagram: 3, style: { left: "44%", top: "5%" }, color: "text-purple-700", duration: 15, delay: 7, scale: 0.7, rotate: 14, hideOnMobile: true },
 ];
 
 interface FeynmanBackgroundProps {

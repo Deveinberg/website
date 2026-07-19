@@ -81,6 +81,28 @@ Voice principles: keep the self-deprecating humor (it's the brand), introduce De
 - [x] Final cleanup (2026-06-12): unused project images deleted, stale WEBSITE-STATUS.md and scripts/download-images.js removed, DEPLOYMENT.md rewritten, Twitter creator placeholder dropped, root PDFs gitignored. Google Scholar (citations?user=4Hz1kfsAAAAJ) linked in contact row + JSON-LD sameAs. Fact-check vs CV: MSc runs Jan 2026–Jan 2028 (timeline says 2026–now), FYP was 2024–25, and copy must not claim a specific current research direction while the MSc topic is still settling (program name "quantum information theory" is the safe phrasing).
 - [x] **No em dashes in site copy** (standing rule). All nine instances reworded with commas, colons, or periods, including the About bio. En dashes in year ranges (2022–23) are fine.
 
+### Phase 5 — Light theme + serif type (2026-07-19, per Dev)
+Dev rejected a full "Lab Notebook" redesign prototype but kept two ideas from it: serif display type and a light palette. **The dark space theme is retired.**
+- [x] Light theme site-wide: body `#FBFBF9`, ink `slate-700/900`, borders `slate-200/300`, accent stays blue (`blue-600` solid buttons with explicit `text-white`, `blue-700` links/labels). Gradient journey overlay kept but as faint light tints. Dock is light glass (`bg-white/70`), active icon solid blue.
+- [x] Fraunces (600/700, via next/font) for h1/h2/h3 through a `h1,h2,h3` rule in globals.css + `font-serif` in Tailwind config; body stays Inter, labels JetBrains Mono. `gradient-text` darkened (blue-600 → violet-600 → cyan-600) for light-bg contrast.
+- [x] Stars retired: `stars-background.tsx` deleted, imports removed from both pages. Feynman diagrams stay as the approved decoration, recolored to 700-weight accents reading as faint ink (baseline opacity 0.13, pulse to 0.45, smaller glow).
+- [x] Proof: 2026 timeline entry now reads "…working in Mile Gu's group at the Nanyang Quantum Hub" (per Dev; CV says quantum information theory, Jan 2026–Jan 2028).
+- [x] `theme-color`/`color-scheme` metas updated to light.
+- Verified: `tsc --noEmit` clean, eslint clean except the known `<img>` warning. `npm run build` could not run in the sandbox (SWC binary fetch); **Dev should run `npm run build` locally before deploying.**
+- Not done (discussed, still open): timeline links to evidence, publications/CV section (CVQBoosting QAIO 2026 paper, Horizon Quantum internship exist in CV but Dev deferred), removing the about-photo pulse dots, framer-motion off the critical path for mobile Lighthouse.
+
+### Phase 5b — Copy corrections + redundancy pass (2026-07-19, per Dev)
+- [x] Hero: "soft spot for taking quantum gates apart" replaced with Dev's actual interests: "quantum information, foundational physics, and relativity". **Dev does not want gate-decomposition framed as his passion**; it was his FYP topic, not his identity.
+- [x] About bio: bolds cut from 9 to 2 (MSc by Research in Physics, NQSS Scholar). Bio now names "Mile Gu's group at the Nanyang Quantum Hub" (Dev is proud of the lab; keep it visible). Fascinations list updated to quantum information / foundational physics / relativity / beyond-SM. JSON-LD gained memberOf Nanyang Quantum Hub.
+- [x] Stats row deleted (was 100% redundant with bio + timeline; "10+ Projects" was unverifiable). NQSS/NTU/MSc now appears 4× not 5× on the homepage.
+- [x] Blog: Substack card description removed (near-duplicate of the page intro two lines above).
+- Verified: tsc clean, eslint clean except known `<img>` warning.
+
+### Phase 5c — Ink stars + hero focus line (2026-07-19, per Dev)
+- [x] ~~Stars~~ **Stars are permanently retired on the light theme.** Two attempts were made and rejected: tiny round dots (looked like dirt on the monitor, per Dev) and 42 four-pointed SVG sparkles with an opacity+scale glint (too present, per Dev). Component deleted again, CSS removed. **Decision: the Feynman diagrams + faint gradient tints are the only background decoration.** Do not reintroduce stars/sparkles/particles on light backgrounds; the dark-theme star field died with the dark theme.
+- [x] Hero now reads "…currently working on foundational quantum information theory" (**phrasing per Dev**, supersedes the earlier "safe phrasing" caution about naming a research direction). Full interests list (quantum information / foundational physics / relativity / beyond-SM) lives in the About bio.
+- Verified: tsc clean, eslint clean except known `<img>` warning.
+
 ### Out of scope (for later, per Dev)
 - New content/pages (CV page, publications list). Worth discussing after UI pass.
 

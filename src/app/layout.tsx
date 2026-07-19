@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap"
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["600", "700"],
   display: "swap"
 });
 
@@ -122,6 +129,10 @@ export default function RootLayout({
       "name": "Nanyang Technological University",
       "url": "https://www.ntu.edu.sg"
     },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Nanyang Quantum Hub"
+    },
     "knowsAbout": [
       "Quantum Computing",
       "Quantum Error Correction",
@@ -161,8 +172,8 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#FBFBF9" />
+        <meta name="color-scheme" content="light" />
         <link rel="icon" href="/images/favicon.png?v=2" type="image/png" />
         <link rel="shortcut icon" href="/images/favicon.png?v=2" type="image/png" />
         <link rel="apple-touch-icon" href="/images/favicon.png?v=2" />
@@ -171,7 +182,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${fraunces.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
